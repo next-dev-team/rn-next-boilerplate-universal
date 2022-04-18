@@ -23,7 +23,8 @@
       "@studio-ghibli-search-engine/models": ["libs/models/src/index.ts"],
       "@studio-ghibli-search-engine/plugins": ["libs/plugins/src/index.ts"],
       "@studio-ghibli-search-engine/services": ["libs/services/src/index.ts"],
-      "@studio-ghibli-search-engine/store": ["libs/store/src/index.ts"]
+      "@studio-ghibli-search-engine/store": ["libs/store/src/index.ts"],
+      "@studio-ghibli-search-engine/ui": ["libs/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

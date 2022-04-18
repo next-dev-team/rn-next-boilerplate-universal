@@ -2,10 +2,9 @@
  * Toggle inspired from https://github.com/infinitered/ignite/blob/master/boilerplate/storybook/toggle-storybook.tsx
  */
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { ReactNode, useEffect, useRef, useState } from 'react';
 import { DevSettings } from 'react-native';
-
-import AppRoot from '../app/App';
+import AppRoot from '../app';
 
 export const DEFAULT_REACTOTRON_WS_URI = 'ws://localhost:9090';
 
@@ -48,7 +47,7 @@ async function saveString(key: string, value: string): Promise<boolean> {
  * persists across reloads/restarts - this is handy when developing
  * new components in Storybook.
  */
-function ToggleStorybook(props) {
+function ToggleStorybook(props: { children?: ReactNode }) {
   const [showStorybook, setShowStorybook] = useState(false);
   const [StorybookUIRoot, setStorybookUIRoot] = useState(null);
   const ws = useRef(new WebSocket(DEFAULT_REACTOTRON_WS_URI));
@@ -107,6 +106,7 @@ function ToggleStorybook(props) {
 
 export default () => {
   return (
+    // @ts-ignore
     <ToggleStorybook>
       <AppRoot />
     </ToggleStorybook>

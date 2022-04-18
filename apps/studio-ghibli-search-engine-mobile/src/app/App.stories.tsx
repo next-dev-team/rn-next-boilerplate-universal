@@ -1,9 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import React from 'react';
-
-import { App } from './App';
+import { AppRoot } from '.';
 
 const props = {};
 
-storiesOf('App', module)
-  .add('Primary', () => <App {...props} />);
+storiesOf('App', module).add('Primary', () => <AppRoot {...props} />);

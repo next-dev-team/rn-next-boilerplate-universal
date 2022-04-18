@@ -37,6 +37,7 @@
     "@storybook/addon-ondevice-notes": "*",
     "@hookstate/core": "*",
     "hookstate-persist": "*",
-    "react-fast-compare": "*"
+    "react-fast-compare": "*",
+    "twrnc": "*"
   }
 }
