@@ -1,0 +1,33 @@
+import { usePersistStore } from '@studio-ghibli-search-engine/hooks';
+import { createStatePersist } from '@studio-ghibli-search-engine/plugins';
+
+type IStore = {
+  counter: number;
+};
+
+const initStore: IStore = {
+  counter: 1,
+};
+
+type IStoreKey = keyof IStore;
+
+const store = createStatePersist<IStore>(initStore);
+
+export function <%= hookName %>() {
+  const { state } = usePersistStore<IStoreKey, IStore>({
+    key: '<%= hookName %>',
+    store,
+    whitelist: ['counter'],
+  });
+
+  return {
+    inc: (by = 1) => {
+      state.counter.set((p) => p + by);
+    },
+    get counter() {
+      return state.counter.get();
+    },
+  } as const;
+}
+
+export type <%= hookTypeName %> = ReturnType<typeof <%= hookName %>>;

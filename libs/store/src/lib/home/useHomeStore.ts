@@ -1,18 +1,17 @@
 import { usePersistStore } from '@studio-ghibli-search-engine/hooks';
 import { createStatePersist } from '@studio-ghibli-search-engine/plugins';
 
-type IInitStore = {};
+type IStore = {
+  counter: number;
+};
 
-const initStore = {
+const initStore: IStore = {
   counter: 1,
 };
 
-type IStore = IInitStore & typeof initStore;
 type IStoreKey = keyof IStore;
 
-const store = createStatePersist<IStore>({
-  ...initStore,
-});
+const store = createStatePersist<IStore>(initStore);
 
 export function useHomeStore() {
   const { state } = usePersistStore<IStoreKey, IStore>({
